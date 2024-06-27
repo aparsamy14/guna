@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunalan V</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    font-size: 18px;
+    background-color: #fff;
+    color: #333;
+}
+
+header {
+    background-color: purple;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.profile-container {
+    max-width: 300px; /* Adjusted for better mobile view */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-link {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    color: #007bff;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #e0e0e0;
+}
+
+.buttons {
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color:rgb(42, 110, 237);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#contact form {
+    display: grid;
+    gap: 1rem;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact button {
+    background: #007bff;
+    color: #fff;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contact button:hover {
+    background: #0056b3;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.portfolio-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.portfolio-filters button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.portfolio-filters button.active,
+.portfolio-filters button:hover {
+    background: #0056b3;
+}
+
+.heading {
+    font-size: 2rem;
+    color: #4aaf3d;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.heading::after {
+    content: '';
+    width: 100px;
+    height: 3px;
+    background: #ff3333;
+    display: block;
+    margin: 0.5rem auto 0;
+    border-radius: 5px;
+}
+
+.pers {
+    list-style: none;
+    max-width: 700px;
+    margin: 0 auto;
+    background: yellowgreen;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.pers1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.pers1:last-child {
+    border-bottom: none;
+}
+
+.pers1 strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.pers1 a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.pers1 a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 0 20px; /* Add padding to center-align content */
+    }
+
+    .profile-img {
+        width: 250px; /* Adjusted size for smaller screens */
+        height: 250px;
+    }
+
+    .pers {
+        padding: 1rem; /* Adjusted padding for smaller screens */
+    }
+}
+
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 100%; /* Full width on smaller screens */
+        height: auto;
+        position: relative;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .toggle-btn {
+        display: block; /* Display toggle button on smaller screens */
+    }
+}
+/* Add or update these styles in your existing CSS */
+
+/* Section Styles */
+#skills {
+    padding: 2rem;
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin-bottom: 2rem;
+}
+
+/* Heading Styling */
+#skills .heading {
+    font-size: 2rem;
+    color: #4aaf3d;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+#skills .heading::after {
+    content: '';
+    width: 100px;
+    height: 3px;
+    background: #ff3333;
+    display: block;
+    margin: 0.5rem auto 0;
+    border-radius: 5px;
+}
+
+/* List Styling */
+#skills ul {
+    list-style-type: none;
+    padding: 0;
+    overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
+    white-space: nowrap; /* Prevent line breaks within items */
+}
+
+#skills ul li {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+    display: inline-block; /* Display items in a row */
+    padding: 0 10px; /* Add padding around items */
+}
+
+@media (max-width: 768px) {
+    #skills ul li {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 0 5px; /* Adjust padding for smaller screens */
+    }
+}
+
+
+    
+
+
+</style>
+<body>
+    <header class="sidebar">
+        <div class="profile-container">
+            <img src="img/gunalan profile.jpg" alt="Gunalan V" class="profile-img">
+            <h1 style="color: white">Gunalan V</h1>
+            <h4  style="color: white;">Associate Design Engineer</h4>
+            <div class="social-icons">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/gunalan-v-33ab871a3" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/___guna_______" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="buttons">
+                <a href="./Gunalan-V-resume.pdf" download="Gunalan V Resume" class="btn">Download CV</a>
+                <a href="#contact" class="btn">Contact Me</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="objective">
+            <h2 class="heading">Career Objective</h2>
+            <p>To pursue a rewarding Career, seeking for a job in a challenging environment which demands all my skills 
+               & efforts and also provides me an opportunity to explore and apply my Engineering knowledge to fulfil 
+               company’s objectives in their Engineering Development.</p>
+        </section>
+        <section id="details">
+            <h2 class="heading">Personal Details</h2>
+            <ul class="pers">
+                <li class="pers1"><strong>Name:</strong> Gunalan</li>
+                <li class="pers1"><strong>Birthday:</strong> 25 January 2001</li>
+                <li class="pers1"><strong>Degree:</strong> Diploma in Mechanical Engineering</li>
+                <li class="pers1"><strong>Experience:</strong> 2 Years</li>
+                <li class="pers1"><strong>Phone:</strong> +91-9750643940</li>
+                <li class="pers1"><strong>Email:</strong> <a href="mailto:gunalan252001@gmail.com">gunalan252001@gmail.com</a></li>
+                <li class="pers1"><strong>Address:</strong> 16/21 P.U. Shanmugam Nagar, Kolathur, Chennai, Tamilnadu - 600099</li>
+                <li class="pers1"><strong>Currently working:</strong> ASHOK LEYLAND LTD (LEAD HR PVT LTD)</li>
+                <li class="pers1"><strong>Tools:</strong> 3DEXPERIENCE, CATIA V5, ENOVIA PLM</li>
+                <li class="pers1"><strong>Languages Known:</strong> English, Tamil</li>
+            </ul>
+        </section>
+        
+        <section id="summary">
+            <h2 class="heading">Profile Summary</h2>
+            <div class="summ">
+            <ul>
+                <li><span class="bullet">&#8226;</span> Product Development (PD)</li>
+                <li><span class="bullet">&#8226;</span> Product design and development of automobile components</li>
+                <li><span class="bullet">&#8226;</span> Drafting, Annotation, Bill of material creation, and Detailing of parts as well as assembly levels</li>
+                <li><span class="bullet">&#8226;</span> Homologation process and requirements</li>
+                <li><span class="bullet">&#8226;</span> Able to understand and foresee the implications of decisions taken while Concept Design works</li>
+                <li><span class="bullet">&#8226;</span> Good knowledge of MS-Office applications</li>
+                <li><span class="bullet">&#8226;</span> Basic knowledge of various manufacturing processes</li>
+                <li><span class="bullet">&#8226;</span> Experience in Dimensioning and Tolerancing (GD&T)</li>
+                <li><span class="bullet">&#8226;</span> Strength in Mechanical Engineering Fundamentals</li>
+                <li><span class="bullet">&#8226;</span> Work closely with the design team to develop and modify existing designs</li>
+                <li><span class="bullet">&#8226;</span> Pursuing CATIA V5 Professional Certification in CATIA Part Designer, Sheet Metal & Surface Design</li>
+            </ul>
+        </div>
+        </section>
+       
+        <section id="summary">
+            <h2 class="heading">Roles and Responsibilities</h2>
+            <div class="summ">
+            <ul>
+                <li><span class="bullet">&#8226;</span>Design of Passenger Commercial Vehicle: Bus Models under M3</li>
+                <li><span class="bullet">&#8226;</span>Extensive Experience in Bus Body Structure & Trims level module DMU creation, modification as per AIS-052 & DMU Basic Structural analysis in 3DEXPERIENCE</li>
+                <li><span class="bullet">&#8226;</span>New Part Number creation as child, sub assy, assembly level</li>
+                <li><span class="bullet">&#8226;</span>Create new stage I, stage II, stage III CR, CA, CO (change request, change action & change order) and Rerelease module for proto build corrective action and BI report preparation</li>
+                <li><span class="bullet">&#8226;</span>Structure level homologation layout and UPD layout preparation</li>
+                <li><span class="bullet">&#8226;</span>Support in trims part & stanchion Module level (New module creation, annotation, drawing, and release activity) through CATIA</li>
+                <li><span class="bullet">&#8226;</span>Problem solving during proto assembly & validation by structure level design changes</li>
+                <li><span class="bullet">&#8226;</span>Design parts, drawing/annotation and bill of material release for development through CATIA and PLM</li>
+                <li><span class="bullet">&#8226;</span>Create Technical proposal for new concept & resolution of technical issues or Design to meet attributes</li>
+            </ul>
+           </div>
+        </section>
+        <section id="skills">
+            <h2 class="heading">Software Proficiency</h2>
+            <ul class="marquee">
+                <marquee><li>CATIA V5 (R20): Part Modelling, Assembly Modelling, Generative Shape design, Surface Modelling, Sheet Metal, Drawing, & DMU analysis</li>
+                <li>3DEXPERIENCE (15X): Part Modelling, Assembly Modelling, Generative Shape design, Surface Modelling, Sheet Metal Design, Drawing, Annotation & DMU analysis</li>
+                <li>PLM Software: ENOVIA, Leap</l
+                <li>AUTO CAD (2021)</li></marquee>
+            </ul>
+        </section>
+        <section id="education">
+            <h2 class="heading">Educational Summary</h2>
+            <ul>
+                <li>
+                    <strong>Diploma in Mechanical Engineering</strong>
+                    <p>2018 – 2021, M.I.E.T Polytechnic College, Trichy (DOTE University) with CGPA 74%</p>
+                </li>
+                <li>
+                    <strong>SSLC (State Board)</strong>
+                    <p>2015-2016, St. Thomas Higher Secondary School, Pattukkottai with 60%</p>
+                </li>
+            </ul>
+        </section>
+        <section id="strengths">
+            <h2 class="heading">Strengths</h2>
+            <ul>
+                <li>Responsible</li>
+                <li>Quick Learner & Problem Solving</li>
+                <li>Flexible and easy to adapt to difficult situations</li>
+                <li>Always seeking Process Improvement & Best Practices</li>
+                <li>Creative and Proactive</li>
+                <li>Enthusiastic</li>
+                <li>Self-Motivated</li>
+                <li>Leadership</li>
+                <li>Time Management</li>
+            </ul>
+        </section>
+        <section id="certifications">
+            <h2 class="heading">Certifications</h2>
+            <ul>
+                <li>AUTO CAD - STEM Centre</li>
+                <li>Engineering Practices in Welding - Govt ITI</li>
+                <li>Engineering Practices in LATHE - Govt ITI</li>
+                <li>Post Diploma in Tool Design - Govt Tool and Training Centre (GTTC)</li>
+                <li>Professional in CATIA - STEM Centre</li>
+                <li>Value Engineering - Alkanoor Training</li>
+                <li>NCVT - Govt ITI</li>
+                <li>3D Printing - Future Forge</li>
+                <li>Embedded System - Visionary Design Development Pvt Ltd</li>
+                <li>Certification in Unigraphics - STEM Centre</li>
+            </ul>
+        </section>
+        <section id="interest">
+            <h2 class="heading">Area of Interest</h2>
+            <ul>
+                <li>New Product Development</li>
+                <li>Design Engineering</li>
+                <li>Product & Techno-commercial Management</li>
+                <li>Drafting and Designing</li>
+                <li>Finite Element Analysis</li>
+            </ul>
+        </section>
+        <section id="achievements">
+            <h2 class="heading">Achievements</h2>
+            <ul>
+                <li>First place in Symposium paper presentation at Govt ITI</li>
+                <li>First place in Engineering Practices (LATHE)</li>
+                <li>Participated in various Paper Presentations and College/School Functions</li>
+                <li>Second place in Cricket Championship at MIET Polytechnic College, Trichy</li>
+            </ul>
+        </section>
+        <section id="portfolio">
+            <h2 class="heading">Projects Images</h2>
+            <div class="portfolio-filters">
+                <button data-filter="*" class="active">All</button>
+                <button data-filter=".product">Product</button>
+                <button data-filter=".bus">Bus</button>
+                <button data-filter=".chassis">Chassis</button>
+                <button data-filter=".flooring">Flooring</button>
+            </div>
+            <div class="portfolio-container">
+                <div class="portfolio-item product"><img src="img/4.jpg" alt="Antiroll Bar"></div>
+                <div class="portfolio-item product"><img src="" alt="Antiroll Bar Link"></div>
+                <div class="portfolio-item product"><img src="" alt="Chassis Front Module"></div>
+                <div class="portfolio-item bus"><img src="" alt="Medium Range School Bus"></div>
+                <div class="portfolio-item bus"><img src="" alt="Staff and School Bus"></div>
+                <div class="portfolio-item bus"><img src=" alt="Inter City Bus"></div>
+                <div class="portfolio-item bus"><img src="" alt="Rural Bus"></div>
+                <div class="portfolio-item chassis"><img src="" alt="BS6 Chassis"></div>
+                <div class="portfolio-item chassis"><img src="" alt="EV Chassis"></div>
+                <div class="portfolio-item chassis"><img src="" alt="FE Bus Chassis"></div>
+                <div class="portfolio-item flooring"><img src="" alt="Floor Layout"></div>
+                <div class="portfolio-item flooring"><img src="" alt="Floor Layout with AC"></div>
+                <div class="portfolio-item flooring"><img src="" alt="Floor Structure"></div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2 class="heading">Contact Me</h2>
+            <form action="https://formspree.io/f/{your_form_id}" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Gunalan V. All rights reserved.</p>
+    </footer>
+  
+    <script src="script.js"></script>
+    <script>
+        $(document).ready(function(){
+    $('.portfolio-filters button').click(function(){
+        $('.portfolio-filters button').removeClass('active');
+        $(this).addClass('active');
+        
+        var selector = $(this).attr('data-filter');
+        $('.portfolio-container').isotope({
+            filter: selector
+        });
+        return false;
+    });
+});
+
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.querySelector('.sidebar');
+    const toggleButton = document.createElement('button');
+    toggleButton.textContent = 'Toggle Sidebar';
+    toggleButton.classList.add('toggle-btn');
+    document.body.appendChild(toggleButton);
+
+    toggleButton.addEventListener('click', function() {
+        sidebar.classList.toggle('sidebar-open');
+    });
+});
+
+    </script>
+</body>
+</html>
